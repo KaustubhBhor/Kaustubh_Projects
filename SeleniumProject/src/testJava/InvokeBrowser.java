@@ -9,6 +9,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
@@ -18,7 +19,11 @@ public class InvokeBrowser {
 	public static void main(String[] args) throws InterruptedException {
 
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\ASK Computers\\workspace\\chromedriver_win32\\chromedriver.exe");
-		driver = new ChromeDriver();
+		
+		ChromeOptions chromeOptions = new ChromeOptions();
+		chromeOptions.addArguments("--remote-allow-origins=*");
+		
+		driver = new ChromeDriver(chromeOptions);
 //		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
 		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
 		Thread.sleep(2000);
@@ -30,7 +35,6 @@ public class InvokeBrowser {
 		
 //		WebElement cost2 = driver.findElement(By.xpath("//*[contains(text(),'Beetroot')]//following::input[1]"));
 //		cost2.sendKeys("3");
-		
 		
 //		InvokeBrowser.mouseHover();
 //		InvokeBrowser.WindowHandlers();
